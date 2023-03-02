@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Balance
+{% endblock %}
+
+{% block main %}
+
+    <form action="/balance" method="post" class="input-group mb-3 sizing">
+        <input autocomplete="off" autofocus name="amount" placeholder="Add to Balance" type="text" class="form-control">
+        <input type="submit" value="Add" class="btn btn-outline-secondary">
+    </form>
+
+    <h2>Current Balance</h2>
+    <table class="table table-striped">
+        <thread>
+            <tr>
+                <th>Balance</th>
+            </tr>
+        </thread>
+        <tbody>
+            <tr>
+                {% for balance in balances %}
+                <td>{{ balance.cash }}</td>
+                {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
